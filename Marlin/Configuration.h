@@ -406,7 +406,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1000
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -483,10 +483,15 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
+  //Da vinci
+  #define DEFAULT_Kp 23.69
+  #define DEFAULT_Ki 1.90
+  #define DEFAULT_Kd 73.74
+
   // Ultimaker
-  #define DEFAULT_Kp 22.8
-  #define DEFAULT_Ki 1.08
-  #define DEFAULT_Kd 114
+  //#define DEFAULT_Kp 14.11
+  //#define DEFAULT_Ki 0.88
+  //#define DEFAULT_Kd 56.64
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -730,7 +735,8 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 87.912, 966.037, 80 }
+// (Steps/mmold)/traveldistance100mm)*100
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 87.912, 966.037, 94.118 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1098,7 +1104,7 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -7.4
 #define Y_MIN_POS -14
-#define Z_MIN_POS 3.0
+#define Z_MIN_POS 1.5
 #define X_MAX_POS 165.6
 #define Y_MAX_POS 158
 #define Z_MAX_POS 162
