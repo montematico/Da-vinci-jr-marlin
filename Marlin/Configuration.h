@@ -483,10 +483,15 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
-  //Da vinci
-  #define DEFAULT_Kp 23.69
-  #define DEFAULT_Ki 1.90
-  #define DEFAULT_Kd 73.74
+  //Da vinci modified fan
+  #define DEFAULT_Kp 18.98
+  #define DEFAULT_Ki 1.45
+  #define DEFAULT_Kd 62.20
+
+  //Da vinci stock fan
+  //#define DEFAULT_Kp 23.69
+  //#define DEFAULT_Ki 1.90
+  //#define DEFAULT_Kd 73.74
 
   // Ultimaker
   //#define DEFAULT_Kp 14.11
@@ -1104,7 +1109,7 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -7.4
 #define Y_MIN_POS -14
-#define Z_MIN_POS 2.00
+#define Z_MIN_POS 2.10
 #define X_MAX_POS 165.6
 #define Y_MAX_POS 158
 #define Z_MAX_POS 162
