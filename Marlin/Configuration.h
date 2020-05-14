@@ -484,14 +484,14 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   //Da vinci modified fan
-  #define DEFAULT_Kp 18.98
-  #define DEFAULT_Ki 1.45
-  #define DEFAULT_Kd 62.20
+  //#define DEFAULT_Kp 18.98
+  //#define DEFAULT_Ki 1.45
+  //#define DEFAULT_Kd 62.20
 
   //Da vinci stock fan
-  //#define DEFAULT_Kp 23.69
-  //#define DEFAULT_Ki 1.90
-  //#define DEFAULT_Kd 73.74
+  #define DEFAULT_Kp 23.69
+  #define DEFAULT_Ki 1.90
+  #define DEFAULT_Kd 73.74
 
   // Ultimaker
   //#define DEFAULT_Kp 14.11
@@ -1485,15 +1485,19 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 195
+#define PREHEAT_1_TEMP_HOTEND 220
 #define PREHEAT_1_TEMP_BED     70
-#define PREHEAT_1_FAN_SPEED     255 // Value from 0 to 255
+#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED    110
-#define PREHEAT_2_FAN_SPEED   255 // Value from 0 to 255
+#define PREHEAT_2_FAN_SPEED   0 // Value from 0 to 255
 
+#define PREHEAT_3_LABEL       "CoolDown"
+#define PREHEAT_3_TEMP_HOTEND 0
+#define PREHEAT_3_TEMP_BED    0
+#define PREHEAT_3_FAN_SPEED   0 // Value from 0 to 255
 /**
  * Nozzle Park
  *
@@ -1505,13 +1509,13 @@
  *    P1  Raise the nozzle always to Z-park height.
  *    P2  Raise the nozzle by Z-park amount, limited to Z_MAX_POS.
  */
-//#define NOZZLE_PARK_FEATURE
+#define NOZZLE_PARK_FEATURE
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS), (Z_MAX_POS) }
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
-  #define NOZZLE_PARK_Z_FEEDRATE 5      // (mm/s) Z axis feedrate (not used for delta printers)
+  #define NOZZLE_PARK_Z_FEEDRATE 75      // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
 
 /**
