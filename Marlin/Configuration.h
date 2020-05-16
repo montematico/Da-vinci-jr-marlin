@@ -741,7 +741,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 // (Steps/mmold)/traveldistance100mm)*100
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 87.912, 966.037, 94.118 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 960.00, 92.27450980392157 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1487,7 +1487,7 @@
 #define PREHEAT_1_LABEL       "PLA"
 #define PREHEAT_1_TEMP_HOTEND 220
 #define PREHEAT_1_TEMP_BED     70
-#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_1_FAN_SPEED     255 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
 #define PREHEAT_2_TEMP_HOTEND 240
@@ -1744,14 +1744,14 @@
 //  If CLOCKWISE normally moves LEFT this makes it go RIGHT.
 //  If CLOCKWISE normally moves RIGHT this makes it go LEFT.
 //
-//#define REVERSE_SELECT_DIRECTION
+#define REVERSE_SELECT_DIRECTION
 
 //
 // Individual Axis Homing
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+#define INDIVIDUAL_AXIS_HOMING_MENU
 
 //
 // SPEAKER/BUZZER
