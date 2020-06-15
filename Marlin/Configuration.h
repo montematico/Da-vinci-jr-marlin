@@ -471,8 +471,8 @@
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 #if ENABLED(PIDTEMP)
-  //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
-  //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
+  #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
+  #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   //#define PID_DEBUG             // Sends debug data to the serial port. Use 'M303 D' to toggle activation.
   //#define PID_OPENLOOP 1        // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
@@ -488,10 +488,15 @@
   //#define DEFAULT_Ki 1.45
   //#define DEFAULT_Kd 62.20
 
+  //Davinci-e3d
+  #define DEFAULT_Kp 35.78
+  #define DEFAULT_Ki 3.97
+  #define DEFAULT_Kd 80.61
+
   //Da vinci stock fan
-  #define DEFAULT_Kp 23.69
-  #define DEFAULT_Ki 1.90
-  #define DEFAULT_Kd 73.74
+  //#define DEFAULT_Kp 23.69
+  //#define DEFAULT_Ki 1.90
+  //#define DEFAULT_Kd 73.74
 
   // Ultimaker
   //#define DEFAULT_Kp 14.11
@@ -741,7 +746,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 // (Steps/mmold)/traveldistance100mm)*100
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 87.912, 966.037, 94.118 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 86.613, 966.037, 94.118 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1092,7 +1097,7 @@
 #define Z_HOMING_HEIGHT  1      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-#define Z_AFTER_HOMING  4      // (mm) Height to move to after homing Z
+#define Z_AFTER_HOMING  11      // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
@@ -1103,16 +1108,16 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 164
-#define Y_BED_SIZE 155
+#define X_BED_SIZE 150
+#define Y_BED_SIZE 140
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -7.4
-#define Y_MIN_POS -14
-#define Z_MIN_POS 2.10
-#define X_MAX_POS 165.6
-#define Y_MAX_POS 158
-#define Z_MAX_POS 162
+#define X_MIN_POS 11
+#define Y_MIN_POS 35
+#define Z_MIN_POS 11
+#define X_MAX_POS 174
+#define Y_MAX_POS 175
+#define Z_MAX_POS 152
 
 /**
  * Software Endstops
@@ -1484,20 +1489,27 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_LABEL       "PLA"
+#define PREHEAT_1_LABEL       "220"
 #define PREHEAT_1_TEMP_HOTEND 220
 #define PREHEAT_1_TEMP_BED     70
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
-#define PREHEAT_2_FAN_SPEED   0 // Value from 0 to 255
+#define PREHEAT_2_LABEL       "200"
+#define PREHEAT_2_TEMP_HOTEND 200
+#define PREHEAT_2_TEMP_BED     70
+#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_3_LABEL       "CoolDown"
 #define PREHEAT_3_TEMP_HOTEND 0
 #define PREHEAT_3_TEMP_BED    0
 #define PREHEAT_3_FAN_SPEED   0 // Value from 0 to 255
+/*
+#define PREHEAT_2_LABEL       "ABS"
+#define PREHEAT_2_TEMP_HOTEND 240
+#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_FAN_SPEED   0 // Value from 0 to 255
+*/
+
 /**
  * Nozzle Park
  *
